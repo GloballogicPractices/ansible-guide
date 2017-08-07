@@ -33,5 +33,5 @@ $Vagrant destroy # Stop and clean boxes. This should take your VM back to pristi
 
 ### Vagrantfile explanation
 ---
-![alt text](/images/vagrant_img_02.png)
+![alt text](/images/vagrantfile-flow.png)
 <br />
