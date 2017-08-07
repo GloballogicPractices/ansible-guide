@@ -6,6 +6,11 @@
 ![alt text](/images/vagrant_image.png)
 <br />
 
+
+### Vagrant up flow 
+![alt text](/images/vagrantup-flow.png)
+<br />
+
 ### Vagrant frequently used commands 
 ```
 $vagrant -h # Prints help 
