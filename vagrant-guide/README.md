@@ -2,12 +2,19 @@
 #### A repository for internal Globallogic training
 ---
 
-### Purpose 
-This module is meant for learners to get familiar with Vagrant. 
-
 ### Vagrant
+![alt text](/images/vagrant_image.png)
+<br />
+
+### Vagrant commands 
+```
+$vagrant
+```
 
 ### Vagrantfile explanation
+![alt text](/images/vagrant_img_02.png)
+<br />
+
 ```   
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
