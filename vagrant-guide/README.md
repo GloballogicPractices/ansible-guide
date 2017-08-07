@@ -1,2 +1,44 @@
-# ansbile-guide
-A repository for internal Globallogic training
+# Vagrant-guide
+#### A repository for internal Globallogic training
+---
+
+### Purpose 
+This module is meant for learners to get familiar with Vagrant. 
+
+### Vagrant
+
+### Vagrantfile explanation
+```   
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+$script = <<-SCRIPT
+  sudo apt-get -y update
+  sudo apt-get install -y nginx
+  sudo service nginx start
+SCRIPT
+
+###################################
+Vagrant.configure("2") do |config|
+    # webserver server
+    config.vm.define "webserver" do |webserver|
+      webserver.vm.box = "minimum/ubuntu-trusty64-docker"
+      webserver.ssh.insert_key = false
+      webserver.vm.network "private_network", ip: "192.168.10.101",
+        auto_config: true
+        #virtualbox__intnet: "ansible-vagrant"
+      webserver.vm.network "forwarded_port", guest: 80 , host: 4000, host_ip: "127.0.0.1"
+      webserver.vm.hostname = "webserver"
+      webserver.vm.provision "shell", inline: "sed 's/127\.0\.0\.1.*webserver.*/192\.168\.10\.101 webserver/' -i /etc/hosts"
+      webserver.vm.provision "shell", inline: $script
+      webserver.vm.provider "virtualbox" do |vb|
+        # Customize VM
+        vb.name = "webserver"
+        vb.memory = "1024"
+        vb.cpus = "2"
+      end
+    end
+    #########################
+    ### Add another box #####
+    #########################
+end
+```
