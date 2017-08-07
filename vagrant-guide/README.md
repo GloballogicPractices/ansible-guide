@@ -1,7 +1,8 @@
-### Vagrant
 ![alt text](/images/vagrant_image.png)
 <br />
----
+
+---  
+
 
 
 ### Vagrant up flow 
@@ -9,12 +10,13 @@
 ![alt text](/images/vagrantup-flow.png)
 <br />
 
----
+
 
 
 ### Vagrant frequently used commands 
 ---
-```
+```shell
+
 $vagrant -h # Prints help 
 
 $vagrant init # Initializes a default vagrant file in the present directory. 
