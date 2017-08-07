@@ -1,17 +1,19 @@
-# Vagrant-guide
-#### A repository for understanding vagrant concepts
----
-
 ### Vagrant
 ![alt text](/images/vagrant_image.png)
 <br />
+---
 
 
 ### Vagrant up flow 
+---
 ![alt text](/images/vagrantup-flow.png)
 <br />
 
+---
+
+
 ### Vagrant frequently used commands 
+---
 ```
 $vagrant -h # Prints help 
 
@@ -32,5 +34,6 @@ $Vagrant destroy # Stop and clean boxes. This should take your VM back to pristi
 ```
 
 ### Vagrantfile explanation
+---
 ![alt text](/images/vagrant_img_02.png)
 <br />
