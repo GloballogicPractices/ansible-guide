@@ -90,8 +90,8 @@ config.vm.network "public_network", bridge: "en1: Wi-Fi (AirPort)"
 
 # Port-forwarding 
 config.vm.network "forwarded_port", guest: 80, host: 8080 # This will allow access to application running on port 80 inside the VM by accessing port 8080 on the host machine. 
-
-# NOTE:
-The behavior for port forwarding on private networks is bit unclear to. Please follow SO post: https://stackoverflow.com/questions/45533628/vagrant-unable-to-reach-nginx-via-private-ip to track this. 
+```
+#### NOTE:
+The behavior for port forwarding on private networks is bit unclear. Please follow [SO_Post](https://stackoverflow.com/questions/45533628/vagrant-unable-to-reach-nginx-via-private-ip)
 
 
