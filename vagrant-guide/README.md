@@ -94,4 +94,27 @@ config.vm.network "forwarded_port", guest: 80, host: 8080 # This will allow acce
 #### NOTE:
 The behavior for port forwarding on private networks is bit unclear. Please follow [SO_Post](https://stackoverflow.com/questions/45533628/vagrant-unable-to-reach-nginx-via-private-ip)
 
+### Vagrant ssh
+
+Vagrant ssh-config command will reveal some details about how ssh is working. 
+
+```shell
+$vagrant ssh-config
+
+# Output
+/*
+Host default
+HostName 127.0.0.1
+User vagrant
+Port 2222
+UserKnownHostsFile /dev/null
+StrictHostKeyChecking no
+PasswordAuthentication no
+IdentityFile /Users/myuser/dev/ansiblebook/ch01/playbooks/.vagrant/machines/default/virtualbox/private_key
+IdentitiesOnly yes
+LogLevel FATAL
+*/
+```
+
+Vagrant generates a private key file and corresponding public key is placed in authorized_keys inside vm. We will be using the private key to run random commands using ansible
 
