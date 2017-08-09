@@ -22,5 +22,5 @@ A very basic guide to learn Ansible along with Vagrant
 - Setup Jenkins+slave using vagrant & Ansible provisioner + AWS ( Use your own account ) 
 
 ### Steps 
-- Navigate to Vagrant-guide and finish exercises 
-- Navigate to Ansible-guide and finish exercises
+- Navigate to vagrant-guide and finish exercises 
+- Navigate to ansible-guide and finish exercises
