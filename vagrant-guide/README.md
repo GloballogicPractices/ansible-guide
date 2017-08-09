@@ -118,3 +118,7 @@ LogLevel FATAL
 
 Vagrant generates a private key file and corresponding public key is placed in authorized_keys inside vm. We will be using the private key to run random commands using ansible
 
+### Exercise 
+
+- Setup MultiVM environment and install nginx on all nodes 
+- Setup a MultiVM environment with one node for Nginx and one for MySql. Install using shell-provisioner
