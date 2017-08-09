@@ -1,6 +1,8 @@
 # Ansbile-guide
 A very basic guide to learn Ansible along with Vagrant 
 
+![alt text](/images/vagrant_ansible.jpeg)
+
 ### Learning-plan 
 - Learn Vagrant concepts
 - Setup Single machine vagrant environment using shell provisioner 
