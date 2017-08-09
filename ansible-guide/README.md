@@ -1,4 +1,3 @@
-# Ansbile-guide
-A very basic guide to learn Ansible along with Vagrant
+# Ansbile
 
 ![alt text](/images/ansible_logo.png)
