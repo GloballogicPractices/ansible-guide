@@ -6,9 +6,9 @@
 
 Vagrant is a manager for your virtual machines. It allows to manage VMs programtically. It provides you with an environment to develop your prototypes, test out new tools & applications, package and ship your own images and many more things. You would however need a a vitualization software such as VirtualBox, VMWare etc to run machine images.
 
-[Vagrant on Windows + VirtualBox]
-[Vagrant on Linux + VirtualBox]
-[Vagrant on MacOS + VirtualBox] 
+[Vagrant on Windows + VirtualBox](https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=6&cad=rja&uact=8&ved=0ahUKEwitzfCz3s_VAhWBsY8KHXAhB3UQtwIISDAF&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DJkf5g7L9dSE&usg=AFQjCNEV0b1RgeipM44h8_siN4KKQDnSkw)
+[Vagrant on Ubutnu + VirtualBox](https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=10&cad=rja&uact=8&ved=0ahUKEwiC84643c_VAhVDYo8KHQO9A8wQtwIIYzAJ&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DVI5m1UyNBiE&usg=AFQjCNH5CJlhbSVO_URVkCuCz4fReJ-31g)
+[Vagrant on MacOS + VirtualBox](https://drupalize.me/videos/installing-vagrant-and-virtualbox)
 
 
 ### Vagrant up flow 
