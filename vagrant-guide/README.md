@@ -2,6 +2,14 @@
 
 <br />
 
+### Why use vagrant?
+
+Vagrant is a manager for your virtual machines. It allows to manage VMs programtically. It provides you with an environment to develop your prototypes, test out new tools & applications, package and ship your own images and many more things. You would however need a a vitualization software such as VirtualBox, VMWare etc to run machine images.
+
+[Vagrant on Windows + VirtualBox]
+[Vagrant on Linux + VirtualBox]
+[Vagrant on MacOS + VirtualBox] 
+
 
 ### Vagrant up flow 
 ---
