@@ -36,6 +36,7 @@ private_key_file = /Users/my-generic-user/.ssh/myprivate-keys.pem
 
 
 [Ansible-config-document](http://docs.ansible.com/ansible/latest/intro_configuration.html)
+[Ansibe-config-exmaple](https://raw.githubusercontent.com/ansible/ansible/devel/examples/ansible.cfg)
 
 
 ### Exercise
@@ -52,4 +53,4 @@ private_key_file = /Users/my-generic-user/.ssh/myprivate-keys.pem
  - ping
  - apt
  - yum
- and many more 
+ and many more

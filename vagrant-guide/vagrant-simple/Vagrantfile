@@ -1,0 +1,21 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+###################################
+Vagrant.configure("2") do |config|
+    # config server
+    config.vm.define "ansible-tst-node" do |config|
+      config.vm.box = "minimum/ubuntu-trusty64-docker"
+      config.ssh.insert_key = false
+      config.vm.network "private_network", ip: "192.168.10.101",
+        auto_config: true
+      #config.vm.network "forwarded_port", guest: 80 , host: 4000, host_ip: "127.0.0.1"
+      config.vm.hostname = "ansible-tst-node"
+      config.vm.provider "virtualbox" do |vb|
+        # Customize VM
+        vb.name = "config"
+        vb.memory = "1024"
+        vb.cpus = "1"
+      end
+    end
+end
