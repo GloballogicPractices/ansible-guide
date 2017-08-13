@@ -1,0 +1,40 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+###################################
+Vagrant.configure("2") do |config|
+    #  server
+    config.vm.define "nginx" do |nginx|
+      nginx.vm.box = "minimum/ubuntu-trusty64-docker"
+      nginx.ssh.insert_key = false
+      nginx.vm.network "private_network", ip: "192.168.10.101",
+        auto_config: true
+        #virtualbox__intnet: "ansible-vagrant"
+      nginx.vm.network "forwarded_port", guest: 80 , host: 4000, host_ip: "127.0.0.1"
+      nginx.vm.hostname = "nginx"
+      nginx.vm.provider "virtualbox" do |vb|
+        # Customize VM
+        vb.name = "nginx"
+        vb.memory = "1024"
+        vb.cpus = "1"
+      end
+    end
+    #########################
+    ### Add another box #####
+    #########################
+    config.vm.define "apache" do |apache|
+      apache.vm.box = "minimum/ubuntu-trusty64-docker"
+      apache.ssh.insert_key = false
+      apache.vm.network "private_network", ip: "192.168.10.102",
+        auto_config: true
+        #virtualbox__intnet: "ansible-vagrant"
+      apache.vm.network "forwarded_port", guest: 80 , host: 5000, host_ip: "127.0.0.1"
+      apache.vm.hostname = "apache"
+      apache.vm.provider "virtualbox" do |vb|
+        # Customize VM
+        vb.name = "apache"
+        vb.memory = "1024"
+        vb.cpus = "1"
+      end
+    end
+end

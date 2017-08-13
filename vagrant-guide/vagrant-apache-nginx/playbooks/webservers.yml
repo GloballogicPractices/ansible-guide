@@ -1,9 +1,3 @@
-### Ansible playbook or plays
-
-A playbook in Ansible is a list of plays and each play can be made up one or more tasks. An example would make things more clear
-
-```shell
-
 # A playbook that consists of two plays
 
 # Play - 1
@@ -27,9 +21,15 @@ A playbook in Ansible is a list of plays and each play can be made up one or mor
     - name: copy index.html # Task 4
       template: src=templates/index.html.j2
                dest=/usr/share/nginx/html/index.html mode=0644
+      notify: restart-nginx
 
     - name: restart nginx # Task 5
       service: name=nginx state=restarted
+  # Restart services if there is change in template
+  handlers:
+      - name: Restart nginx
+        service: name=nginx state=restarted
+        listen: "restart-nginx"
 
 # Play - 2
 - name: Setup apache
@@ -42,21 +42,13 @@ A playbook in Ansible is a list of plays and each play can be made up one or mor
     - name: copy index.html # Task 2
       template: src=templates/index.html.j2
                dest=/var/www/html/index.html mode=0644
+      notify: restart-apache
 
     - name: restart apache # Task 3
       service: name=apache2 state=restarted
 
-```
-
-Every play must contain
-- A set of hosts to configure
-- A set of tasks to be executed on those hosts
-
-#### Example
-
-[Nginx-Apache-example](/vagrant-guide/vagrant-apache-nginx)
-
-### Exercise
-
-- Setup SSL certs for Nginx
-- Setup SSL certs for Apache 
+  # Restart services if there is change in template
+  handlers:
+      - name: Restart apache
+        service: name=apache2 state=restarted
+        listen: "restart-apache"
