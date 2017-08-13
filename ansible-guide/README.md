@@ -28,3 +28,4 @@ Head over to [YAML-Tutorial](https://learnxinyminutes.com/docs/yaml/)
 
 - [Ansible-command](/ansible-guide/docs/doc-1.md)
 - [Ansible-configuration](/ansible-guide/docs/doc-2.md)
+- [Ansible-plays](/ansible-guide/docs/doc-3.md)
