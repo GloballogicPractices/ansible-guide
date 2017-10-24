@@ -24,3 +24,7 @@ A very basic guide to learn Ansible along with Vagrant
 ### Steps 
 - Navigate to [vagrant-guide](/vagrant-guide) and finish exercises 
 - Navigate to [ansible-guide](/ansible-guide) and finish exercises
+
+
+### NOTE
+Work in progress. Not yet complete. 
