@@ -1,0 +1,58 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+
+###################################
+Vagrant.configure("2") do |config|
+    $script = <<-SCRIPT
+      sudo apt-get -y update
+      sudo apt-get install -y docker docker.io apt-transport-https
+      sudo usermod -aG docker vagrant
+      sudo service docker restart
+      curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+      chmod +x ./kubectl
+      sudo mv ./kubectl /usr/local/bin/kubectl
+      curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+      echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" > /etc/apt/sources.list.d/kubernetes.list
+      apt-get update
+      apt-get install -y kubelet kubeadm kubernetes-cni
+    SCRIPT
+    # Master server
+    config.vm.define "master" do |master|
+      master.vm.box = "bento/ubuntu-16.04"
+      master.ssh.insert_key = false
+      master.vm.network :private_network, ip: "192.168.30.101",
+        auto_config: true,
+        virtualbox__intnet: "k8s-net"
+      master.vm.network "forwarded_port", guest: 8081 , host: 4000, host_ip: "127.0.0.1"
+      master.vm.hostname = "master"
+      master.vm.provision "shell", inline: "sed 's/127\.0\.0\.1.*master.*/192\.168\.30\.101 master/' -i /etc/hosts"
+      master.vm.provision "shell", inline: "echo '192.168.30.102 minion2' >> /etc/hosts"
+      master.vm.provision "shell", inline: $script
+      master.vm.provider "virtualbox" do |vb|
+        # Customize VM
+        vb.name = "kube-master"
+        vb.memory = "1024"
+        vb.cpus = "2"
+      end
+    end
+    # Minion1 server
+    config.vm.define "minion1" do |minion|
+      minion.vm.box = "bento/ubuntu-16.04"
+      minion.ssh.insert_key = false
+      minion.vm.network :private_network, ip: "192.168.30.102",
+        auto_config: true,
+        virtualbox__intnet: "k8s-net"
+      minion.vm.hostname = "minion1"
+      minion.vm.provision "shell", inline: "sed 's/127\.0\.0\.1.*minion1.*/192\.168\.30\.102 minion1/' -i /etc/hosts"
+      minion.vm.provision "shell", inline: "echo '192.168.30.101 master' >> /etc/hosts"
+      minion.vm.network "forwarded_port", guest: 8081, host: 5000, host_ip: "127.0.0.1"
+      minion.vm.provision "shell", inline: $script
+      minion.vm.provider "virtualbox" do |vb|
+        # Customize VM
+        vb.name = "kube-minion1"
+        vb.memory = "1024"
+        vb.cpus = "2"
+      end
+    end
+end

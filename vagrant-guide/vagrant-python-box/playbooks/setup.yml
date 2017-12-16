@@ -1,0 +1,27 @@
+---
+
+- name: Install pip
+  apt: name=python-pip state=installed
+  become: yes
+
+- name: Install aws cli
+  command: pip install awscli
+
+- name: Install docker py
+  command: pip install docker
+
+- name: Install docker
+  apt: name=docker.io state=installed
+  become: yes
+
+- name: Add vagrant user to docker
+  user: >
+    name=vagrant
+    groups=docker
+    append=yes
+  become: yes
+  notify: restart docker daemon
+
+- name: Install add-apt-repostory
+  become: yes
+  apt: name=software-properties-common state=latest
